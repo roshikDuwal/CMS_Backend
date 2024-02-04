@@ -28,6 +28,6 @@ app.use(errorMiddleware)
 
 connectDb();
 
-app.listen(4000, () => {
-  console.log(`Connected to Port : http://localhost:4000/`);
+app.listen(process.env.PORT, () => {
+  console.log(`Connected to Port : ${process.env.FrontendURL}`);
 });
