@@ -12,13 +12,15 @@ const app = express();
 
 config();
 
-const corsOptions={
-  origin:process.env.FrontendURL,
-  method:"GET,POST,PUT,DELETE,PATCH,HEAD",
-  credentials:true
-}
 
-app.use(cors(corsOptions))
+
+app.use(cors({
+  origin:[process.env.FRONTEND_URL],
+  methods:["GET","POST","PUT","DELETE"],
+  credentials:true
+}))
+
+
 app.use(express.json());
 
 app.use("/api/v1", UserRouter,ContactRouter,ServiceRouter);
